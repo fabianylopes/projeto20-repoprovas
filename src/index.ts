@@ -5,10 +5,13 @@ import chalk from "chalk";
 import dotenv from "dotenv";
 dotenv.config();
 
+import { handleErrorsMiddleware } from "./middlewares/handleErrorsMiddleware.js";
+
 const app = express();
 
 app.use(cors());
 app.use(json());
+app.use(handleErrorsMiddleware);
 
 const PORT = +process.env.PORT || 5000;
 app.listen(PORT, () => {
