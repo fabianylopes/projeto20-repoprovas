@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 
-export async function handleErrorsMiddleware(error, req: Request, res: Response, next: NextFunction) {
+export default function handleErrorsMiddleware(error, req: Request, res: Response, next: NextFunction) {
     
     console.log("Xabuuuuuu", error);
 

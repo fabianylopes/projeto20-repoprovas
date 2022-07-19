@@ -5,7 +5,7 @@ import chalk from "chalk";
 import dotenv from "dotenv";
 dotenv.config();
 
-import { handleErrorsMiddleware } from "./middlewares/handleErrorsMiddleware.js";
+import handleErrorsMiddleware from "./middlewares/handleErrorsMiddleware.js";
 
 const app = express();
 
