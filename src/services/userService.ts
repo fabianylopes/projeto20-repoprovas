@@ -2,10 +2,10 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
 import * as userRepository from "../repositories/userRepository.js"
-import { CreateUserData } from "../repositories/userRepository.js";
+import { CreateUser } from '../utils/createData.js';
 
-export async function signUp(createUserData: CreateUserData) {
-    const { email, password } = createUserData;
+export async function signUp(createUser: CreateUser) {
+    const { email, password } = createUser;
     
     const existingEmail = await userRepository.findByEmail(email);
     if(existingEmail) throw {type: "conflict", message: "Email has already been registred!"}
@@ -15,8 +15,8 @@ export async function signUp(createUserData: CreateUserData) {
     await userRepository.create({email, password: hashedPassword});
 }
 
-export async function signIn(createUserData: CreateUserData) {
-    const { email, password } = createUserData;
+export async function signIn(createUser: CreateUser) {
+    const { email, password } = createUser;
 
     const user = await userRepository.findByEmail(email);
     if(!user) throw {type: "unauthorized", message: "Invalid data!"}

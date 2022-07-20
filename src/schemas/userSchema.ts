@@ -1,14 +1,13 @@
 import joi from "joi";
 
-import { CreateUserData } from "../repositories/userRepository";
+import { CreateUser } from "../utils/createData.js";
 
-const signUpSchema = joi.object<CreateUserData>({
+const signUpSchema = joi.object<CreateUser>({
     email: joi.string().required(),
     password: joi.string().required(),
-    //confirmPassword: joi.string().required()
 });
 
-const signInSchema = joi.object({
+const signInSchema = joi.object<CreateUser>({
     email: joi.string().required(),
     password: joi.string().required()
 });
