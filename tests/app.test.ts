@@ -6,6 +6,7 @@ import app from '../src/app.js';
 import { prisma } from "../src/config/db.js";
 import { createUserFactory, userDataFactory } from './factories/userFactory.js';
 import { tokenFactory } from './factories/tokenFactory.js';
+import { insertTest } from './factories/testFactory.js';
 
 describe('register tests suite', () => {
     beforeEach(async () => {
@@ -93,7 +94,11 @@ describe('tests tests suite', () => {
     });
 
     it('should create test and return 201', async () => {
-        
+        const token = await tokenFactory();
+        const body = insertTest();
+
+        const response = await supertest(app).post('/test').send(body).set("Authorization", `Bearer ${token}`);
+        expect(response.status).toEqual(201);
     });
 })
 
