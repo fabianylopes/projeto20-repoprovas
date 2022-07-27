@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import jwt from "jsonwebtoken";
-import { findById } from "../repositories/userRepository";
+import { findById } from "../repositories/userRepository.js";
 
 export async function validateTokenMiddleware(req: Request, res: Response, next: NextFunction) {
     const authorization = req.headers["authorization"];
