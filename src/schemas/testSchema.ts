@@ -1,11 +1,11 @@
 import Joi from "joi";
+import { CreateTest } from "../utils/createData";
 
-const testSchema = Joi.object({
+const testSchema = Joi.object<CreateTest>({
     name: Joi.string().required(),
     pdfUrl: Joi.string().uri().required(),
-    category: Joi.string().required(),
-    discipline: Joi.string().required(),
-    teachersDiscipline: Joi.string().required()
+    categoryId: Joi.number().required(),
+    teachersDisciplineId: Joi.number().required()
 });
 
 export default testSchema;

@@ -1,5 +1,13 @@
 import { prisma } from "../config/db.js";
 
+import { CreateTest } from "../utils/createData.js";
+
+export async function insert(test: CreateTest) {
+    return prisma.test.create({
+        data: test,
+    });
+}
+
 export async function findByDiscipline() {
     return prisma.term.findMany({
         include: {
@@ -10,7 +18,7 @@ export async function findByDiscipline() {
                             teacher: true,
                             tests: {
                                 include: {
-                                    categories: true,
+                                    category: true,
                                 }
                             }
                         }
@@ -28,7 +36,7 @@ export async function findByDisciplineTeacher() {
             discipline: true,
             tests: {
                 include: {
-                    categories: true,
+                    category: true,
                 }
             }
         }
