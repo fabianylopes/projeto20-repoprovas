@@ -3,7 +3,7 @@
   "type": "module",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "src/server.js",
   "scripts": {
     "test": "dotenv -e .env.test prisma migrate dev && NODE_OPTION=--experimental-vm-modules dotenv -e .env.test jest -i",
     "build": "tsc",
