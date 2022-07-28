@@ -6,7 +6,7 @@
   "main": "server.js",
   "scripts": {
     "build": "tsc",
-    "start": "node dist/server.js",
+    "start:heroku": "node dist/server.js",
     "dev": "nodemon src/server.ts",
     "test": "dotenv -e .env.test prisma migrate dev && NODE_OPTION=--experimental-vm-modules dotenv -e .env.test jest -i"
   },
