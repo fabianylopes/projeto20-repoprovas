@@ -7,7 +7,7 @@
   "scripts": {
     "test": "dotenv -e .env.test prisma migrate dev && NODE_OPTION=--experimental-vm-modules dotenv -e .env.test jest -i",
     "build": "tsc",
-    "start": "node dist/src/server.js",
+    "start":"tsc && node dist/src/server.js",
     "dev": "nodemon src/server.ts"
   },
   "keywords": [],
